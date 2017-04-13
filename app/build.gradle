@@ -19,10 +19,18 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        mavenCentral();
+        jcenter();
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
-    compile project(':camera_library')
+    compile 'com.github.scofield-hello:CameraApplication:V1.0.0'
 }

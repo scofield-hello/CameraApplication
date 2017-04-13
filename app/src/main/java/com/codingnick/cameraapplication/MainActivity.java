@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(CameraControl.FLASH_MODE, 1);//1
         intent.putExtra(CameraControl.FOCUS_MODE, 0);//0
         intent.putExtra(CameraControl.QUALITY, 0);//0
-        intent.putExtra(CameraControl.FRONT_CAMERA, false);//false
+        intent.putExtra(CameraControl.FRONT_CAMERA, true);//false
         intent.putExtra(CameraControl.FACE_DETECTION, true);//false
         startActivityForResult(intent, CameraControl.REQUEST_CODE);
     }

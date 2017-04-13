@@ -77,6 +77,7 @@ public class CameraFragment extends Fragment implements PhotoSavedListener {
 
     private boolean supportedHDR = false;
     private boolean supportedFlash = false;
+    private boolean supportedAutoFocus = false;
     private boolean supportedFaceDetection = false;
     private int outputOrientation;
     private ViewGroup previewContainer;
@@ -156,6 +157,17 @@ public class CameraFragment extends Fragment implements PhotoSavedListener {
         }
         if (supportedHDR && hdrMode != null){
             parameters.setSceneMode(Camera.Parameters.SCENE_MODE_AUTO);
+        }
+        List<String> focusModes = parameters.getSupportedFocusModes();
+        if (focusModes != null){
+            for (String mode : focusModes){
+                if (mode.equals(Camera.Parameters.FOCUS_MODE_AUTO)){
+                    supportedAutoFocus = true;
+                }
+            }
+        }
+        if (supportedAutoFocus){
+            parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
         }
         setPreviewSize(parameters, ratio);
         setPictureSize(parameters, quality, ratio);
